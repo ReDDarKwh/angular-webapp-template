@@ -5,6 +5,7 @@ import { map, take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material';
 import { HeaderService } from './services/header.service';
+import { AuthenticationService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,8 @@ export class AppComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private router: Router,
-    private headerService: HeaderService
+    private headerService: HeaderService,
+    public auth: AuthenticationService
   ) {
     headerService.titleSubject.subscribe(title => {
       this.title = title;
